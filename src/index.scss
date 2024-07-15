@@ -1,0 +1,33 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap');
+
+$very-light: #dddddb;
+$light: #cac4ac;
+$dark: #454545;
+$greenish: #1a3532;
+$redish: #d55333;
+$blueish-gray: #4e6e70;
+$soft-blue: #8b6ea3;
+$terracotta: #b05f4e;
+$pale-pink: #e8b4c1;
+
+//#f7f7f6  1
+//#dbd5bd 2
+//#dddddb 3
+body {
+  box-sizing: border-box;
+  direction: rtl;
+  background-color:#1a3532;
+  font-weight: 400;
+
+
+}
+
+
+.link{
+    text-decoration: none ;
+    color: inherit ;
+}
+
+
+
