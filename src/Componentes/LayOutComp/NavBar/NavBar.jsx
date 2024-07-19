@@ -19,13 +19,15 @@ export default function NavBar() {
     <>
        <Navbar expand="lg" className={`${style.bgNav} `}>
         <Container fluid>
+            <img src={logo} className={`${style.logo} `} alt="" />
             <Navbar.Brand href="#" className='fw-bold fs-4 text-muted  '> آية (صل علي محمد)🧡</Navbar.Brand>
+            
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
             <Nav
                 className="ms-auto  my-lg-0"
-                style={{ maxHeight: '100px' }}
-                navbarScroll
+              
+            
             >
                 {userData?(
                   <>
@@ -52,7 +54,7 @@ export default function NavBar() {
                     <Link href="#"><button onClick={LogOut} className={`${style.btn} btn btn-danger  mt-2 `}>خروج</button></Link>
                   </>
                 ):('')}
-                <img src={logo} className={`${style.logo} me-3 `} alt="" />
+               
 
                 
                 
