@@ -5,17 +5,21 @@ import axios from 'axios'
 export default function AzkarElsabah() {
 
   const [azkarElsabah, setAzkarElsabah] = useState([])
+  const [loading, setloading] = useState(false)
 
   
   useEffect(() => {
     const getAllAzkarElsabah = async () => {
+      setloading(true)
       try {
         const { data } = await axios.get('https://ayah-ten.vercel.app/azkarElsabah/getAllAzkarElsabah');
         setAzkarElsabah(data.allAzkar.map(item => ({
           ...item,
           initialCount: item.count
         })));
+        setloading(false)
       } catch (error) {
+        setloading(false)
         console.error('حدث خطأ:', error);
       }
     };
@@ -39,7 +43,12 @@ export default function AzkarElsabah() {
 
   return (
     <>
-    <div className="azkarElsabah">
+    {loading?(
+         <div className='d-flex justify-content-center align-items-center vh-100'>
+         <i class="fa-solid fa-mosque  fa-10x   text-white fa-spin"></i>
+     </div>
+    ):(
+      <div className="azkarElsabah pb-5 mb-5">
       <div className="container">
         <div className="row">
           <div className="col-md-8 m-auto">
@@ -74,6 +83,8 @@ export default function AzkarElsabah() {
        ))}
       </div>
     </div>
+    )}
+  
       
     </>
   )

@@ -35,7 +35,7 @@ export default function Login() {
       try{
         const { data, status } = await axios.post('https://ayah-ten.vercel.app/users/login', values);
         if (status === 201) {
-          notify('Login successful', 'success');
+          notify('تم التسجيل بنجاح', 'success');
           localStorage.setItem('token', data.token);
           saveUserData();
           setLoading(false);

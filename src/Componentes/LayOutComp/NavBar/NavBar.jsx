@@ -32,6 +32,7 @@ export default function NavBar() {
                     <Nav.Link href="#"><Link className='nav-link' to=''>الصفحه الرئيسيه</Link></Nav.Link>
                     <Nav.Link href="#"><Link className='nav-link' to='Azkar'>الاذكار</Link></Nav.Link>
                     <Nav.Link href="#"><Link className='nav-link' to='Ahadith'>الاحاديث</Link></Nav.Link>
+                    <Nav.Link href="#"><Link className='nav-link' to='Roqya'>الرقيه الشرعيه</Link></Nav.Link>
                     <Nav.Link href="#"><Link className='nav-link' to='Sebha'>سبحه</Link></Nav.Link>
 
                   </>

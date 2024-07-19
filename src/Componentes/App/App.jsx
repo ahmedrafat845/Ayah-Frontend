@@ -10,6 +10,9 @@ import { ToastContainer } from 'react-toastify';
 import Azkar from '../LayOutComp/AllAzkar/Azkar/Azkar';
 import AzkarElsabah from './../LayOutComp/AllAzkar/AzkarElsabah/AzkarElsabah';
 import AzkarElmasaa from '../LayOutComp/AllAzkar/AzkarElmasaa/AzkarElmasaa';
+import Roqya from '../LayOutComp/Roqya/Roqya';
+import Ahadith from './../LayOutComp/Ahadith/Ahadith';
+import Sebha from '../LayOutComp/Sebha/Sebha';
 
 
 export default function App() {
@@ -28,6 +31,9 @@ export default function App() {
       {path:'AzkarElsabah',element:<ProtectRouter>  <AzkarElsabah/>  </ProtectRouter>},
       {path:'AzkarElmasaa',element:<ProtectRouter>  <AzkarElmasaa/>  </ProtectRouter>},
       {path:'Azkar',element:<ProtectRouter>  <Azkar/>  </ProtectRouter>},
+      {path:'Ahadith',element:<ProtectRouter>  <Ahadith/>  </ProtectRouter>},
+      {path:'Roqya',element:<ProtectRouter>  <Roqya/>  </ProtectRouter>},
+      {path:'Sebha',element:<ProtectRouter>  <Sebha/>  </ProtectRouter>},
       {path:'Login',element:<ReverseProtect>  <Login/>  </ReverseProtect>},
     ])}
 
