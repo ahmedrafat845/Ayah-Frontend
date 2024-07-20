@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import style from './AzkarElmasaa.module.scss';
+import sound from '../../../../not.wav'
 
 
 export default function AzkarElmasaa() {
 
   const [azkarElmasaa, setAzkarElmasaa] = useState([])
   const [loading, setloading] = useState(false)
+  const audioRef = useRef(null);
 
   useEffect(() => {
     (async () => {
@@ -30,6 +32,8 @@ export default function AzkarElmasaa() {
     const updatedAzkar = [...azkarElmasaa];
     if (updatedAzkar[index].count > 0) {
       updatedAzkar[index] = { ...updatedAzkar[index], count: updatedAzkar[index].count - 1 };
+    }else{
+      audioRef.current.play();
     }
     setAzkarElmasaa(updatedAzkar);
   };
@@ -48,6 +52,7 @@ export default function AzkarElmasaa() {
    </div>
     ):(
       <div className="azkarElmasaa">
+         <audio ref={audioRef} src={sound} />
       <div className="container">
         <div className="row">
           <div className="col-md-8 m-auto">
@@ -59,15 +64,15 @@ export default function AzkarElmasaa() {
 
         </div>
         {azkarElmasaa.map((item, index) => (
-          <div key={index} className={`${style.caption_of_azkarElmasaa} row p-5`}>
+          <div key={index} className={`${style.caption_of_azkarElmasaa} row py-5 px-4`}>
 
             <div className="col-md-9 order-md-2">
               <div className="content">
                 <div className='d-flex justify-content-between'>
                   <h4 className={`${style.title}`}>{`{${item.title}}`}</h4> <span className={`${style.numOfZekr}`}>{item.numOfZekr}</span>
                 </div>
-                <h3 className='my-3'>{item.zekr}</h3>
-                <h5 className={`${style.benefit}`}>{item.benefit ? `{${item.benefit}}` : ''}</h5>
+                <h3 className={`${style.zekr} my-3`}>{item.zekr}</h3>
+                <h5 className={`${style.benefit} mb-2`}>{item.benefit ? `{${item.benefit}}` : ''}</h5>
               </div>
             </div>
             <div className="col-md-3 order-md-1">

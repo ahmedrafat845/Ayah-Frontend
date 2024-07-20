@@ -76,7 +76,7 @@ export default function AzkarElsabah() {
               <h4 className={`${style.title}`}>{`{${item.title}}`}</h4> <span className={`${style.numOfZekr}`}>{item.numOfZekr}</span>
           </div>
            <h3 className={`${style.zekr} my-3`}>{item.zekr}</h3>
-           <h6 className={`${style.benefit}`}>{item.benefit ? `{${item.benefit}}` : ''}</h6>
+           <h6 className={`${style.benefit} mb-2`}>{item.benefit ? `{${item.benefit}}` : ''}</h6>
           </div>
          </div>
          <div className="col-md-3 order-md-1">
