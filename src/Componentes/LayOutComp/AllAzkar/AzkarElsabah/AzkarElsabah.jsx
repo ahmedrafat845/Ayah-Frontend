@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import style from './AzkarElsabah.module.scss'
 import axios from 'axios'
+import sound from '../../../../not.wav'
 
 export default function AzkarElsabah() {
 
   const [azkarElsabah, setAzkarElsabah] = useState([])
   const [loading, setloading] = useState(false)
+  const audioRef = useRef(null);
+
 
   
   useEffect(() => {
@@ -29,7 +32,11 @@ export default function AzkarElsabah() {
 
   const handleCount = (index) => {
     const updatedAzkar = [...azkarElsabah];
-    updatedAzkar[index] = { ...updatedAzkar[index], count: updatedAzkar[index].count - 1 };
+    if (updatedAzkar[index].count > 0) {
+      updatedAzkar[index] = { ...updatedAzkar[index], count: updatedAzkar[index].count - 1 };
+    }else{
+      audioRef.current.play();
+    }
     setAzkarElsabah(updatedAzkar);
   };
   const handleReset = (index) => {
@@ -49,6 +56,7 @@ export default function AzkarElsabah() {
      </div>
     ):(
       <div className="azkarElsabah pb-5 mb-5">
+        <audio ref={audioRef} src={sound} />
       <div className="container">
         <div className="row">
           <div className="col-md-8 m-auto">
@@ -60,15 +68,15 @@ export default function AzkarElsabah() {
 
         </div>
        {azkarElsabah.map((item,index)=>(
-         <div key={index} className={`${style.caption_of_azkarElsabah} row p-5`}>
+         <div key={index} className={`${style.caption_of_azkarElsabah} row py-5 px-4`}>
         
          <div className="col-md-9 order-md-2">
           <div className="content">
           <div className='d-flex justify-content-between'>
               <h4 className={`${style.title}`}>{`{${item.title}}`}</h4> <span className={`${style.numOfZekr}`}>{item.numOfZekr}</span>
           </div>
-           <h3 className='my-3'>{item.zekr}</h3>
-           <h5 className={`${style.benefit}`}>{item.benefit ? `{${item.benefit}}` : ''}</h5>
+           <h3 className={`${style.zekr} my-3`}>{item.zekr}</h3>
+           <h6 className={`${style.benefit}`}>{item.benefit ? `{${item.benefit}}` : ''}</h6>
           </div>
          </div>
          <div className="col-md-3 order-md-1">

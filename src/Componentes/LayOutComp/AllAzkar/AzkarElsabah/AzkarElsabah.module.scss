@@ -1,14 +1,14 @@
 @import '../../../../index.scss';
 
 .head_Of_Azkar_Elsabah{
-    background-color: $very-light;
+    background-color: $light;
     text-align: center;
     padding: 20px;
     border-radius: 15px;
     margin-top: 20px;
 }
 .caption_of_azkarElsabah{
-    background-color: $very-light;
+    background-color: $light;
     margin-top: 40px;
     border-radius: 15px;
 }
@@ -51,4 +51,8 @@
 }
 .benefit{
  color: $blueish-gray;
+}
+.zekr{
+    line-height: 37px;
+    word-spacing: 7px;
 }
