@@ -39,7 +39,7 @@ export default function Roqya() {
     <>
    {loading? (
     <div className='d-flex justify-content-center align-items-center vh-100'>
-        <i class="fa-solid fa-mosque  fa-10x   text-white fa-spin"></i>
+        <i className="fa-solid fa-mosque  fa-10x   text-white fa-spin"></i>
     </div>
     ):
     ( <div className="azkarElsabah pb-5 mb-5">

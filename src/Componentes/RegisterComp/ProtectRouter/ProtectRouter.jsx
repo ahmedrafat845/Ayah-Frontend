@@ -1,18 +1,14 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Navigate } from 'react-router-dom'
-import { mediaContext } from '../../../Context/MediaStore'
 
 
-export default function ProtectRouter({children}) {
-  let {userData}=useContext(mediaContext)
-    if(userData == '' || localStorage.getItem("token") == null){
-        return <Navigate to="/Login"/>
-    }else{
-        return children
-    }
-  return (
-    <>
-      
-    </>
-  )
+export default function ProtectRouter({ children }) {
+
+  let token = localStorage.getItem("token")
+
+  if (!token) {
+    return <Navigate to="/Login" replace />
+  }
+
+  return children
 }

@@ -31,11 +31,12 @@ export default function NavBar() {
             >
                 {userData?(
                   <>
-                    <Nav.Link href="#"><Link className='nav-link' to=''>الصفحه الرئيسيه</Link></Nav.Link>
-                    <Nav.Link href="#"><Link className='nav-link' to='Azkar'>الاذكار</Link></Nav.Link>
-                    <Nav.Link href="#"><Link className='nav-link' to='Ahadith'>الاحاديث</Link></Nav.Link>
-                    <Nav.Link href="#"><Link className='nav-link' to='Roqya'>الرقيه الشرعيه</Link></Nav.Link>
-                    <Nav.Link href="#"><Link className='nav-link' to='Sebha'>سبحه</Link></Nav.Link>
+                    <Nav.Link as={Link} to="">الصفحه الرئيسيه</Nav.Link>
+                    <Nav.Link as={Link} to="Azkar">الاذكار</Nav.Link>
+                    <Nav.Link as={Link} to="Ahadith">الاحاديث</Nav.Link>
+                    <Nav.Link as={Link} to="Roqya">الرقيه الشرعيه</Nav.Link>
+                    <Nav.Link as={Link} to="Sebha">سبحه</Nav.Link>
+
 
                   </>
                 ):('')}

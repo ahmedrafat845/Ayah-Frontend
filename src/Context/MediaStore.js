@@ -1,34 +1,29 @@
 import { createContext, useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
 
+export let mediaContext = createContext()
 
-export let mediaContext=createContext()
+export default function MediaContextProvider(props) {
+  const [userData, setUserData] = useState(null)
 
-export default function MediaContextProvider(props){
-  const [userData, setuserData] = useState('')
-
-  let saveUserData=()=>{
-    setuserData(localStorage.getItem("token"))
+  let saveUserData = () => {
+    const token = localStorage.getItem("token")
+    setUserData(token)
   }
+
   useEffect(() => {
-    if(localStorage.getItem("token")){
+    if (localStorage.getItem("token")) {
       saveUserData()
     }
-   
   }, [])
 
-    
-
-
-  let LogOut=()=>{
+  let LogOut = () => {
     localStorage.removeItem("token")
-    setuserData('')
-    return <Navigate to="/Login"/>
-
-
+    setUserData(null)
   }
 
-    return <mediaContext.Provider value={{saveUserData,userData,LogOut}}>
-     {props.children}
+  return (
+    <mediaContext.Provider value={{ saveUserData, userData, LogOut }}>
+      {props.children}
     </mediaContext.Provider>
+  )
 }
